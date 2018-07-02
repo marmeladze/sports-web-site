@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Email</th>
+      <th>Social</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.social %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', remove_admin_user_path(user), class: "btn btn-danger", method: :put, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= render partial: 'admin/partials/new_resource', locals: {ns: 'admin', resource: 'user'} %>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Site Title</title>
+  <%= javascript_include_tag 'admin' %>
+  <%= stylesheet_link_tag    'admin', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <nav class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Link1', '#' %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Yazılar
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% Category.all.each do |category| %>
+                <li><%= link_to category.title, '#' %>
+              <% end %>
+            </ul>
+          </li>
+          <li><%= link_to 'Link1', '#' %></li>
+          <li><%= link_to 'Link2', '#' %></li>
+          <li><%= link_to 'Link3', '#' %></li>
+          <li><%= link_to 'Link4', '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

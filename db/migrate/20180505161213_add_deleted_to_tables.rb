@@ -1,0 +1,7 @@
+class AddDeletedToTables < ActiveRecord::Migration
+  def change
+    add_column :posts, :deleted, :boolean, default: false
+    add_column :categories, :deleted, :boolean, default: false
+    add_column :users, :deleted, :boolean, default: false
+  end
+end

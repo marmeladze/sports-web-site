@@ -1,0 +1,2 @@
+class WeeklyNewsletterMailer < ApplicationMailer
+end
